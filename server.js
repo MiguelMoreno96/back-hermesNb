@@ -8,6 +8,9 @@ app.use(express.json())
 
 app.get('/', (req,res) => res.json({msg: 'hola hermesN'}) )
 
+server.use('/api/v1/group', require('./routes/Group.routes'))
+server.use('/api/v1/Data', require('./routes/DataGroup.route'))
+
 const PORT = 5000;
 
 app.listen(PORT, () => console.log('server is runnig'));
