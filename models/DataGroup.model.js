@@ -1,7 +1,4 @@
-const { months } = require('moment');
 const mongoose = require('mongoose');
-
-
 
 const DataGroup = new mongoose.Schema({
         parameters: {

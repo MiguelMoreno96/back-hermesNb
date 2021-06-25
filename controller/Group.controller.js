@@ -2,7 +2,6 @@ const Group = require('../models/Group.model');
 const path = require('path');
 const fs = require('fs');
 const xlsx = require('xlsx');
-const fetch = require('node-fetch');
 
 exports.postGroup = async(req,res) =>{
     try {
