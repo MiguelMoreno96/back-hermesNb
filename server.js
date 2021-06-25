@@ -12,6 +12,7 @@ app.get('/', (req,res) => res.json({msg: 'hola hermesN'}) )
 
 app.use('/api/v1/group', require('./routes/Group.routes'));
 app.use('/api/v1/Data', require('./routes/DataGroup.route'));
+app.use('/api/v1/checkNum', require('./routes/checkNum.route'));
 
 const PORT = 5000;
 
