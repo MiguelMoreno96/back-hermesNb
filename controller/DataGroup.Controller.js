@@ -64,7 +64,6 @@ exports.getcheckNum = async (req,res) => {
 exports.postData = async (req,res) => {
     try {
         const gruop = req.body;
-        console.log(gruop);
         const newGruop = await DataG.create(gruop);
         
         if(!newUser){
@@ -72,13 +71,12 @@ exports.postData = async (req,res) => {
                 success: false,
                 message: 'Error al insertar al grupo'
             })
-        }else{
-            console.log("aceptado");
+        }
             return res.status(201).json({
                 success: true,
                 newGruop
             })
-        }
+        
     } catch (error) {
         return res.status(500).json({
             success: false,
@@ -111,18 +109,17 @@ exports.getFirstData = async (req,res) => {
 }
 exports.getLastData = async (req,res) => {
     try {
-        const data_group = await DataG.find();
-        console.log("--xx----");
-        const LastData = data_group[data_group.length-1]
-        console.log(LastData);
-        if(!LastData){
+        const data_group = await DataG.find( ).sort({CheckNum:-1}).limit(1);
+        //const data2 = await DataG.find({},{CheckNum:1}).sort({CheckNum: -1}).limit(1).first() 
+        console.log(data_group);
+        if(!data_group){
             return res.status(400).json({
                 success: false,
-                message: 'No se pudo traer los datos de los grupos'})
+                message: 'No se pudo traer los datos del grupo'})
         }
         return  res.status(200).json({
             success: true,
-            data: LastData
+            data: data_group
         })
     } catch (error) {
         return res.status(500).json({
