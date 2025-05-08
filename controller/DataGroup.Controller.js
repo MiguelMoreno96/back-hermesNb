@@ -88,9 +88,9 @@ exports.getFirstData = async (req,res) => {
     try {
         const data_group = await DataG.find();
 
-        console.log("--xx----xxx");
+        
         const FirstData = data_group[0]
-        console.log(FirstData);
+        
         if(!FirstData){
             return res.status(400).json({
                 success: false,

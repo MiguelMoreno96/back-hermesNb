@@ -1,4 +1,6 @@
 const express = require('express');
+const colors = require('colors');
+const dotenv = require('dotenv');
 const cors = require('cors');
 const  app = express();
 const connectDB = require('./config/db');
@@ -14,6 +16,6 @@ app.use('/api/v1/group', require('./routes/Group.routes'));
 app.use('/api/v1/Data', require('./routes/DataGroup.route'));
 app.use('/api/v1/checkNum', require('./routes/checkNum.route'));
 
-const PORT = 5000;
+const PORT = 5050;
 
 app.listen(PORT, () => console.log('server is runnig'));
